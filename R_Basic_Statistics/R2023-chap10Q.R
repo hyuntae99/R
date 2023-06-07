@@ -96,6 +96,7 @@ z_alpha = qnorm(1-alpha)
 x_bar = 10.5
 z = (x_bar - mu) / (s / sqrt(n))
 
+# 기각역을 통한 검정 
 c(z, z_alpha)
 if (z >= z_alpha) {
   print("H0 기각한다.")
@@ -105,6 +106,7 @@ if (z >= z_alpha) {
   print("5주 동안 10kg 넘게 체중을 줄일 수 있다고 할 수 없다.")
 }
 
+# P-값을 통한 검정 
 # P(Z <= z)
 p_value <- pnorm(-abs(z))
 c(p_value, alpha)
@@ -216,7 +218,7 @@ z <- (p_hat - p) / se
 
 # P(Z >= z)
 p_value <- pnorm(-abs(z))
-p_value
+p_value # 0.005614943
 
 # 일반적으로 사용하는 유의수준이 0.01, 0.05, 0.1인 것으로 생각하면
 # p-값이 0.005xxx이므로 일반적으로 H0를 기각할 수 있다. (p-값 < 유의수준이므로)
